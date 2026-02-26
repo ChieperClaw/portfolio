@@ -17,13 +17,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           color: project.cardTextColor
         }}
       >
-        <div className={styles.header}>
-          <span className={styles.number}>ПРОЕКТ {project.number}</span>
-          <span className={styles.title}>{project.titleShort || project.title}</span>
-        </div>
+        <span className={styles.cardTitle}>{project.titleShort || project.title}</span>
       </Link>
       <div className={styles.labelRow}>
-        <span className={styles.projectLabel}>ПРОЕКТ {project.number}</span>
+        <span className={styles.projectLabel}>Проект {project.number}</span>
         <span className={styles.projectName}>{project.titleShort || project.title}</span>
       </div>
     </div>

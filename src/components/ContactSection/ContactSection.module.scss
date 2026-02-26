@@ -3,7 +3,6 @@
 
 .contactSection {
   padding: 80px 0;
-  text-align: center;
 }
 
 .container {
@@ -14,39 +13,41 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  align-items: center;
 }
 
 .contactItem {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
 
-  &.pink { background: $pink; }
-  &.blue { background: $blue; }
-  &.blue-dark { background: darken($blue, 10%); }
-}
+  &.pink {
+    background: #f2adad;
+    border-radius: 999px;
+  }
 
-.placeholderIcon {
-  width: 24px;
-  height: 24px;
+  &.blue {
+    background: #adc0f2;
+    border-radius: 0;
+  }
+
+  &.salmon {
+    background: #f2bfad;
+    border-radius: 22px;
+  }
 }
 
 .value {
   @include heading-font;
-  font-size: $h5-size;
-  color: hsla(28, 44%, 48%, 0.5); // Warm taupe/sand with opacity
+  font-size: clamp(28px, 4.5vw, 56px);
+  line-height: 1;
 
   @include mobile {
-    font-size: 24px;
+    font-size: clamp(20px, 6vw, 32px);
   }
 }

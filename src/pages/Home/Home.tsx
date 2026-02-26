@@ -13,8 +13,14 @@ export default function Home() {
       
       <header className={styles.hero}>
         <div className={styles.heroContainer}>
-          <h1 className={styles.heroName}>Евгения Фаргер</h1>
-          <p className={styles.heroSubtitle}>UI/UX DESIGNER</p>
+          <h1 className={styles.heroName}>
+            <span className={styles.heroFirst}>
+              <span className={styles.heroStar}>✦</span>
+              Евгения
+            </span>
+            <span className={styles.heroLast}>Фаргер</span>
+          </h1>
+          <p className={styles.heroSubtitle}>UI/UX Designer</p>
         </div>
       </header>
 
@@ -30,23 +36,20 @@ export default function Home() {
         </section>
 
         <section className={styles.ctaBanner}>
-          <div className={styles.container}>
-            <Link to="/works" className={styles.ctaLink}>
-              Смотреть все работы
-              <div className={styles.ctaUnderline}></div>
-            </Link>
-          </div>
+          <Link to="/works" className={styles.ctaLink}>
+            Смотреть все работы
+          </Link>
         </section>
 
         <section className={styles.moments}>
           <div className={styles.container}>
-            <span className={styles.momentsLabel}>MILDLY IMPRESSIVE MOMENTS</span>
+            <span className={styles.momentsLabel}>Mildly impressive moments</span>
             <div className={styles.momentsContent}>
               <p className={styles.momentsText}>
-                Ghosted Memory is a visual dissection of memory decay in a digitized world. 
-                Using glitch aesthetics, distorted portraiture, and clinical documentation 
-                as artistic media, the project explores the friction between what we remember 
-                and what is archived in our digital shadows.
+                Along the way: featured on Figma Community, invited to speak at a design thing,
+                and once accidentally made a typeface that looked like pasta. My work has shown
+                up in zines, mockups, sticker-covered laptops, and one Berlin subway ad (true story).
+                Small wins, big joy.
               </p>
               <Link to="/about" className={styles.momentsMore}>Смотреть еще →</Link>
             </div>

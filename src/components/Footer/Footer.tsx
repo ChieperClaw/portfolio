@@ -16,11 +16,11 @@ export default function Footer() {
           </div>
           <div className={styles.name}>Евгения Фаргер</div>
         </div>
-        <div className={styles.blobs}>
-          <div className={`${styles.blob} ${styles.cream}`}></div>
-          <div className={`${styles.blob} ${styles.blue}`}></div>
-          <div className={`${styles.blob} ${styles.pink}`}></div>
-        </div>
+      </div>
+      <div className={styles.blobs}>
+        <div className={`${styles.blob} ${styles.peach}`}></div>
+        <div className={`${styles.blob} ${styles.blue}`}></div>
+        <div className={`${styles.blob} ${styles.pink}`}></div>
       </div>
     </footer>
   );

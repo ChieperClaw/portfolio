@@ -13,23 +13,29 @@
 
 .container {
   @include container;
-  position: relative;
-  display: flex;
-  flex-direction: column;
 }
 
 .info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 24px;
-  font-size: $label-size;
+  padding-bottom: 40px;
+  @include body-font;
+  font-size: 16px;
+  font-weight: 500;
   color: $black;
+
+  a {
+    color: $black;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    &:hover { opacity: 0.6; }
+  }
 
   @include mobile {
     flex-direction: column;
     gap: 16px;
-    padding-bottom: 40px;
+    padding-bottom: 32px;
   }
 }
 
@@ -37,40 +43,38 @@
   display: flex;
   gap: 12px;
   align-items: center;
-
-  a {
-    transition: opacity 0.2s;
-    &:hover { opacity: 0.6; }
-  }
 }
 
-.dot { font-size: 16px; }
+.dot {
+  color: $salmon;
+  font-size: 16px;
+}
 
 .blobs {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 16px;
-  margin-top: 24px;
-  height: 80px;
+  height: 200px;
 
   @include mobile {
-    height: 60px;
+    height: 120px;
   }
 }
 
 .blob {
-  width: 180px;
-  height: 100%;
-  border-top-left-radius: 90px;
-  border-top-right-radius: 90px;
-  transform: translateY(20px);
+  flex: 1;
+  transform: translateY(65%);
 
-  &.cream { background: $cream; height: 100%; }
-  &.blue { background: $blue; height: 120%; }
-  &.pink { background: $pink; height: 90%; }
+  &.peach {
+    background: $peach;
+    border-radius: 100px 100px 0 0;
+  }
 
-  @include mobile {
-    width: 100px;
+  &.blue {
+    background: $blue;
+    border-radius: 0;
+  }
+
+  &.pink {
+    background: $pink;
+    border-radius: 999px 999px 0 0;
   }
 }

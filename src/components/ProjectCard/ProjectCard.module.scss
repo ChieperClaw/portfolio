@@ -8,64 +8,50 @@
 }
 
 .card {
-  height: 400px;
   width: 100%;
+  aspect-ratio: 640 / 528;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 0; // Sharp edges as per spec
   transition: transform 0.3s ease;
   position: relative;
+  text-decoration: none;
+  padding: 40px;
 
   &:hover {
     transform: scale(0.98);
   }
 
   @include mobile {
-    height: 300px;
+    padding: 24px;
   }
 }
 
-.header {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  @include mobile {
-    top: 24px;
-    left: 24px;
-    gap: 4px;
-  }
-}
-
-.number {
-  @include body-font;
-  font-size: $label-size;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.title {
+.cardTitle {
   @include heading-font;
-  font-size: $h4-size;
-  max-width: 80%;
-
-  @include mobile {
-    font-size: 32px;
-  }
+  font-size: clamp(32px, 4vw, 56px);
+  text-align: center;
+  line-height: 1.1;
 }
 
 .labelRow {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 4px;
   @include body-font;
-  font-size: $label-size;
-  color: hsla(0, 0%, 0%, 0.4);
+  padding: 0 4px;
 }
 
-.projectLabel { font-weight: 600; }
-.projectName { font-weight: 500; }
+.projectLabel {
+  font-size: 10px;
+  font-weight: 700;
+  color: $black;
+  text-transform: uppercase;
+}
+
+.projectName {
+  font-size: 20px;
+  font-weight: 500;
+  color: $black;
+}
