@@ -1,3 +1,7 @@
-// Fonts loaded via Google Fonts link tags in index.html
-// Manrope: body text
-// DM Serif Display: headings (Unageo fallback)
+@font-face {
+  font-family: 'Unageo';
+  src: url('/fonts/Unageo[wght].ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
