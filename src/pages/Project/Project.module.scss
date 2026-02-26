@@ -1,0 +1,99 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  padding: 120px 0 60px;
+  @include mobile { padding: 100px 0 40px; }
+}
+
+.title {
+  @include heading-font;
+  font-size: $h2-size;
+  line-height: 0.9;
+  margin-top: 40px;
+  color: $black;
+
+  @include mobile { font-size: 56px; }
+}
+
+.backLink {
+  @include body-font;
+  font-size: $p4-size;
+  color: $black;
+}
+
+.container { @include container; }
+
+.content {
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  @include mobile {
+    padding: 40px 0;
+    gap: 40px;
+  }
+}
+
+.description {
+  @include heading-font;
+  font-size: $p2-size;
+  line-height: 1.6;
+  max-width: 90%;
+  color: hsla(0, 0%, 0%, 0.8);
+
+  @include mobile { font-size: 20px; }
+}
+
+.imageBlock {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mobile { height: 350px; }
+}
+
+.placeholderImg {
+  @include body-font;
+  font-size: $h5-size;
+  color: white;
+  text-align: center;
+}
+
+.related { padding: 80px 0; border-top: 1px solid #ebebeb; }
+
+.relatedGrid {
+  display: flex;
+  gap: 40px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.relatedItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tinyThumb {
+  width: 100%;
+  height: 180px;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  @include body-font;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: hsla(0, 0%, 0%, 0.4);
+}
+
+.tinyName { font-weight: 700; color: $black; }

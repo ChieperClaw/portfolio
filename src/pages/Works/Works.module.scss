@@ -1,0 +1,106 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  background: $light-blue;
+  padding: 100px 0 40px;
+
+  @include mobile {
+    padding: 80px 0 24px;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.title {
+  @include heading-font;
+  font-size: $p1-size * 3;
+  color: hsla(28, 74%, 48%, 1); // Warm orange/tan
+  font-style: italic;
+  font-weight: 700;
+
+  @include mobile {
+    font-size: 56px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  padding: 80px 0;
+
+  @include mobile {
+    gap: 60px;
+    padding: 40px 0;
+  }
+}
+
+.projectItem {
+  display: flex;
+  gap: 60px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.projectLabel {
+  @include body-font;
+  font-size: $caption-size;
+  color: hsla(0, 0%, 0%, 0.4);
+}
+
+.projectName {
+  @include heading-font;
+  font-size: $p4-size;
+  font-weight: 700;
+  text-align: right;
+
+  @include mobile {
+    text-align: left;
+  }
+}
+
+.description {
+  @include body-font;
+  font-size: $caption-size;
+  line-height: 1.6;
+}
+
+.viewLink {
+  @include body-font;
+  font-size: $caption-size;
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.right {
+  flex: 2;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+
+  @include mobile {
+    height: 300px;
+  }
+}
+
+.visualTitle {
+  @include heading-font;
+  font-size: 48px;
+  font-weight: 700;
+}

@@ -1,0 +1,76 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  padding-top: 60px;
+  background-color: $white;
+  overflow: hidden;
+
+  @include mobile {
+    padding-top: 40px;
+  }
+}
+
+.container {
+  @include container;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  font-size: $label-size;
+  color: $black;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 40px;
+  }
+}
+
+.links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  a {
+    transition: opacity 0.2s;
+    &:hover { opacity: 0.6; }
+  }
+}
+
+.dot { font-size: 16px; }
+
+.blobs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: 24px;
+  height: 80px;
+
+  @include mobile {
+    height: 60px;
+  }
+}
+
+.blob {
+  width: 180px;
+  height: 100%;
+  border-top-left-radius: 90px;
+  border-top-right-radius: 90px;
+  transform: translateY(20px);
+
+  &.cream { background: $cream; height: 100%; }
+  &.blue { background: $blue; height: 120%; }
+  &.pink { background: $pink; height: 90%; }
+
+  @include mobile {
+    width: 100px;
+  }
+}

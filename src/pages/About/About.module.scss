@@ -1,0 +1,153 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  background: $salmon;
+  padding: 180px 0 80px;
+
+  @include mobile {
+    padding: 120px 0 40px;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.heroContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+.title {
+  @include heading-font;
+  font-size: $h1-size;
+  line-height: 0.9;
+  color: $brown;
+
+  @include mobile {
+    font-size: 56px;
+  }
+}
+
+.portrait {
+  width: 250px;
+  height: 300px;
+  background: #fff;
+  overflow: hidden;
+
+  @include mobile {
+    width: 200px;
+    height: 250px;
+  }
+}
+
+.photoPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: #dbdbdb;
+  /* Add real image as background-image in real use-case */
+}
+
+.bioGrid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 80px;
+  padding: 80px 0;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 0;
+  }
+}
+
+.bio {
+  @include body-font;
+  font-size: $p4-size;
+  line-height: 1.6;
+  max-width: 90%;
+
+  p { margin-bottom: 24px; }
+}
+
+.sideLists {
+  display: flex;
+  gap: 40px;
+}
+
+.listSection {
+  h3 {
+    @include body-font;
+    font-size: $caption-size;
+    color: hsla(0, 0%, 0%, 0.4);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  ul {
+    @include body-font;
+    font-size: $caption-size;
+    color: $black;
+    line-height: 2;
+  }
+}
+
+.experience {
+  background: #fff8ec;
+  padding: 80px 0;
+}
+
+.expTitle {
+  @include heading-font;
+  font-size: $h3-size;
+  font-style: italic;
+  font-weight: 700;
+  color: hsla(28, 74%, 48%, 1);
+  margin-bottom: 40px;
+
+  @include mobile {
+    font-size: 40px;
+  }
+}
+
+.expTable {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #f5d0b8;
+  @include body-font;
+  font-size: $caption-size;
+  color: hsla(0, 0%, 0%, 0.6);
+  letter-spacing: 0.1em;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 20px;
+  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.2);
+  @include body-font;
+  font-size: $p4-size;
+}
+
+.rightAlign {
+  text-align: right;
+  flex: 1;
+}
+
+.tableRow span, .tableHeader span {
+  flex: 1;
+}

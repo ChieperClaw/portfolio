@@ -1,0 +1,71 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.projectWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0; // Sharp edges as per spec
+  transition: transform 0.3s ease;
+  position: relative;
+
+  &:hover {
+    transform: scale(0.98);
+  }
+
+  @include mobile {
+    height: 300px;
+  }
+}
+
+.header {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @include mobile {
+    top: 24px;
+    left: 24px;
+    gap: 4px;
+  }
+}
+
+.number {
+  @include body-font;
+  font-size: $label-size;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.title {
+  @include heading-font;
+  font-size: $h4-size;
+  max-width: 80%;
+
+  @include mobile {
+    font-size: 32px;
+  }
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  @include body-font;
+  font-size: $label-size;
+  color: hsla(0, 0%, 0%, 0.4);
+}
+
+.projectLabel { font-weight: 600; }
+.projectName { font-weight: 500; }

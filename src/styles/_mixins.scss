@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $padding-horizontal;
+
+  @include mobile {
+    padding: 0 $padding-horizontal-mobile;
+  }
+}
+
+@mixin heading-font {
+  font-family: $font-heading;
+  font-weight: 400;
+}
+
+@mixin body-font {
+  font-family: $font-body;
+  font-weight: 500;
+}
