@@ -3,7 +3,7 @@
 
 .hero {
   background: $salmon;
-  padding: 180px 0 80px;
+  padding: 200px 0 100px;
 
   @include mobile {
     padding: 120px 0 40px;
@@ -28,7 +28,7 @@
 
 .title {
   @include heading-font;
-  font-size: clamp(80px, 14vw, 200px);
+  font-size: 240px;
   line-height: 0.9;
   color: $brown;
 
@@ -38,14 +38,16 @@
 }
 
 .portrait {
-  width: 250px;
-  height: 300px;
+  width: 320px;
+  height: 420px;
   background: #fff;
   overflow: hidden;
+  flex-shrink: 0;
+  margin-bottom: -60px;
 
   @include mobile {
-    width: 200px;
-    height: 250px;
+    width: 240px;
+    height: 300px;
   }
 }
 
@@ -61,6 +63,7 @@
   grid-template-columns: 3fr 2fr;
   gap: 80px;
   padding: 80px 0;
+  position: relative;
 
   @include mobile {
     grid-template-columns: 1fr;
@@ -71,20 +74,20 @@
 
 .bio {
   @include body-font;
-  font-size: $p4-size;
-  line-height: 1.6;
+  font-size: $p3-size;
+  line-height: 1.7;
   max-width: 90%;
-  position: relative;
 
-  p { margin-bottom: 24px; }
+  p { margin-bottom: 32px; }
 }
 
 .decorFlower {
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
   position: absolute;
   bottom: -20px;
-  right: -40px;
+  right: 0;
+  z-index: 0;
 
   @include mobile {
     width: 70px;
@@ -96,23 +99,23 @@
 
 .sideLists {
   display: flex;
-  gap: 40px;
+  gap: 60px;
 }
 
 .listSection {
   h3 {
     @include body-font;
-    font-size: $caption-size;
+    font-size: 14px;
     color: hsla(0, 0%, 0%, 0.4);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     margin-bottom: 12px;
   }
 
   ul {
     @include body-font;
-    font-size: $caption-size;
+    font-size: 18px;
     color: $black;
-    line-height: 2;
+    line-height: 2.2;
   }
 }
 
@@ -123,14 +126,14 @@
 
 .expTitle {
   @include heading-font;
-  font-size: $h3-size;
+  font-size: 100px;
   font-style: italic;
   font-weight: 700;
   color: hsla(28, 74%, 48%, 1);
   margin-bottom: 40px;
 
   @include mobile {
-    font-size: 40px;
+    font-size: 48px;
   }
 }
 
@@ -142,10 +145,10 @@
 .tableHeader {
   display: flex;
   justify-content: space-between;
-  padding: 12px 20px;
+  padding: 16px 24px;
   background: #f5d0b8;
   @include body-font;
-  font-size: $caption-size;
+  font-size: 14px;
   color: hsla(0, 0%, 0%, 0.6);
   letter-spacing: 0.1em;
 }
@@ -153,10 +156,10 @@
 .tableRow {
   display: flex;
   justify-content: space-between;
-  padding: 24px 20px;
+  padding: 28px 24px;
   border-bottom: 1px dotted hsla(0, 0%, 0%, 0.2);
   @include body-font;
-  font-size: $p4-size;
+  font-size: 18px;
 }
 
 .rightAlign {

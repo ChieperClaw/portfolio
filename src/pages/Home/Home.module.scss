@@ -6,7 +6,7 @@
 }
 
 .hero {
-  padding-top: 120px;
+  padding-top: 160px;
   padding-bottom: 40px;
 
   @include mobile {
@@ -21,14 +21,14 @@
 
 .heroName {
   @include heading-font;
-  font-size: clamp(64px, 10vw, 160px);
+  font-size: 160px;
   font-weight: 700;
   line-height: 0.9;
   color: $brown;
   margin-bottom: 16px;
 
   @include mobile {
-    font-size: clamp(48px, 14vw, 80px);
+    font-size: 64px;
   }
 }
 
@@ -59,9 +59,9 @@
 
 .ctaBanner {
   background: $blue;
-  border-radius: 50px;
+  border-radius: 40px;
   margin: 80px 20px;
-  padding: 70px 60px;
+  padding: 80px 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,30 +75,36 @@
 
 .ctaLink {
   @include heading-font;
-  font-size: clamp(32px, 6vw, 80px);
+  font-size: 80px;
   color: #e8a020;
   text-decoration: underline dashed;
   text-underline-offset: 6px;
   display: block;
   text-align: center;
+
+  @include mobile {
+    font-size: 40px;
+  }
 }
 
 .moments {
-  padding: 80px 0;
+  padding: 100px 0;
 }
 
 .momentsLabel {
   @include body-font;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 700;
   color: hsla(0, 0%, 0%, 0.4);
   margin-bottom: 24px;
   display: block;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 .momentsContent {
-  margin-left: 120px;
-  max-width: 65%;
+  margin-left: 200px;
+  max-width: 55%;
 
   @include mobile {
     margin-left: 0;
@@ -108,7 +114,7 @@
 
 .momentsText {
   @include body-font;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 500;
   line-height: 1.5;
   margin-bottom: 16px;

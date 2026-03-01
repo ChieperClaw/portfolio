@@ -4,7 +4,7 @@
 .projectWrapper {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .card {
@@ -30,9 +30,13 @@
 
 .cardTitle {
   @include heading-font;
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: 80px;
   text-align: center;
   line-height: 1.1;
+
+  @include mobile {
+    font-size: 36px;
+  }
 }
 
 .labelRow {
@@ -45,7 +49,7 @@
 }
 
 .projectLabel {
-  font-size: $label-size;
+  font-size: 14px;
   font-weight: 700;
   color: $black;
   text-transform: uppercase;
