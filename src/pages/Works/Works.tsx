@@ -22,8 +22,10 @@ export default function Works() {
             {projects.map((project) => (
               <div key={project.id} className={styles.projectItem}>
                 <div className={styles.left}>
-                  <p className={styles.projectLabel}>ПРОЕКТ {project.number}</p>
-                  <h3 className={styles.projectName}>{project.title}</h3>
+                  <div className={styles.labelRow}>
+                    <p className={styles.projectLabel}>ПРОЕКТ {project.number}</p>
+                    <h3 className={styles.projectName}>{project.titleShort || project.title}</h3>
+                  </div>
                   <p className={styles.description}>{project.description}</p>
                   <Link to={`/works/${project.id}`} className={styles.viewLink}>
                     View case study →
@@ -41,7 +43,7 @@ export default function Works() {
         </div>
       </main>
 
-      <ContactSection backgroundColor="#ffffff" />
+      <ContactSection backgroundColor="#fbf9ea" />
       <Footer />
     </div>
   );
