@@ -20,31 +20,12 @@
 }
 
 .heroName {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 12px;
-}
-
-.heroFirst {
-  @include body-font;
-  font-size: clamp(28px, 4vw, 56px);
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: $black;
-  line-height: 1.2;
-}
-
-.heroStar {
-  color: $brown;
-}
-
-.heroLast {
   @include heading-font;
-  font-size: clamp(56px, 9vw, 120px);
-  line-height: 0.95;
+  font-size: clamp(64px, 10vw, 160px);
+  font-weight: 700;
+  line-height: 0.9;
   color: $brown;
+  margin-bottom: 16px;
 
   @include mobile {
     font-size: clamp(48px, 14vw, 80px);
@@ -58,10 +39,14 @@
   color: $black;
 }
 
+.projects {
+  padding-top: 40px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 12px;
 
   @include mobile {
     grid-template-columns: 1fr;
@@ -75,8 +60,8 @@
 .ctaBanner {
   background: $blue;
   border-radius: 50px;
-  margin: 80px 40px;
-  padding: 60px 40px;
+  margin: 80px 20px;
+  padding: 70px 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,8 +76,9 @@
 .ctaLink {
   @include heading-font;
   font-size: clamp(32px, 6vw, 80px);
-  color: $white;
-  text-decoration: none;
+  color: #e8a020;
+  text-decoration: underline dashed;
+  text-underline-offset: 6px;
   display: block;
   text-align: center;
 }

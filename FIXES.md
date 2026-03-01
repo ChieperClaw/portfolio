@@ -1,105 +1,130 @@
-# FIXES — Match Figma Design Exactly
+# Portfolio Fixes — Figma vs Implementation
 
-Read this file and fix ALL components to match the Figma design. Apply ALL fixes below.
+Reference screenshots are in `./design-reference/`:
+- `desktop-1-main.png` — Home page
+- `desktop-2-projects.png` — Works page
+- `desktop-4.png` — About page
+- `styles.png` — Design system
 
-## 1. HERO SECTION (Home page)
+## Design System (from SPEC.md + styles.png)
 
-**Current issue:** Font "Евгения" is on a separate line from "Фаргер". In Figma, "Евгения" has a star/asterisk decoration and is ABOVE "Фаргер" which is much larger.
+### Fonts
+- **Headings:** `Unageo` Bold (700) — already loaded via @font-face
+- **Body:** `Manrope` Medium (500) — already loaded
 
-**Figma structure:**
-- "Евгения" row: has a star icon next to it, smaller text
-- "Фаргер": Unageo Bold 120px, color #4f2a08 (brown), NOT black
-- Subtitle: "UI/UX Designer" in Archivo Narrow 500 16px, black
+### Font Sizes (EXACT from Figma)
+- H1: 200px, H2: 120px, H3: 80px, H4: 56px, H5: 32px
+- P1: 32px, P2: 24px, P3: 20px, P4: 16px, Label: 12px, Caption: 10px
 
+### Colors
+- Black: #000000, Green: #adf1ad, Peach: #f2d9ad, Blue: #adc0f2
+- Pink: #f2adad, Salmon: #f2bfad, Brown: #4f2a08, Cream: #fbf9ea
+- Light Blue: #dae8ff, White: #ffffff, Light Gray: #ebebeb
+
+---
+
+## FIXES TO IMPLEMENT (priority order)
+
+### 1. 🔴 Hero Name — Home Page
+**Current:** "Евгения" in small body font + "Фаргер" in serif on separate line + ✦ star icon
+**Figma:** Single cohesive heading, both words in Unageo Bold, very large (close to 200px), spanning nearly full width. NO star icon.
 **Fix:**
-- Split the name into two lines: "Евгения" (smaller, ~56px) with a decorative ✦ star + "Фаргер" (larger, clamp(56px, 9vw, 120px)), color brown #4f2a08
-- Subtitle: "UI/UX Designer" in Manrope 500 16px (we don't have Archivo Narrow, Manrope is fine)
+- Remove the ✦ star icon
+- Make "Евгения Фаргер" a single `<h1>` in Unageo Bold
+- Font size: use `clamp(72px, 12vw, 200px)` to fill width responsively
+- Both words same font family and weight, brown color (#4f2a08)
+- Can be on two lines at narrow widths, but same typographic style throughout
 
-## 2. PROJECT CARDS (Home page)
-
-**Current issue:** Cards show project titles inside them. In Figma, the card is just an IMAGE CONTAINER (640x528) with the project image/cover, and the text is BELOW the card.
-
-**Figma structure per card:**
-```
-Case studies item (640x628)
-  Image container (640x528) ← the colored rectangle/image area
-  Project info (640x100) ← text below
-    "Проект 1" — Manrope 700 10px, black
-    "Прометалл" — Manrope 500 20px, black
-```
-
+### 2. 🔴 CTA "Смотреть все работы" — Home Page
+**Current:** White text on blue background
+**Figma:** Golden/yellow text (#e88a00 or similar warm gold) on blue (#adc0f2) background, with dashed underline on text
 **Fix:**
-- The card area (640x528 proportionally) should be a colored rectangle. For now since there are no project images, show the project TITLE in large text centered inside the colored area (like a placeholder cover).
-- Below the card: project number in bold caps ("Проект 1") + project name ("Прометалл"), both in small text, black.
-- Cards in 2x2 grid with small gap
-- Card aspect ratio: 640:528 ≈ 1.21:1
+- Change text color to warm gold/orange: `#e88a00`
+- Add `text-decoration: underline dashed` to the text
+- Keep blue background (#adc0f2)
 
-## 3. CTA BANNER — "Смотреть все работы"
-
-**Current issue:** Might have wrong styling.
-
-**Figma structure:**
-- Frame: 1280x224, background: `#adc0f2` (BLUE, not peach!), border-radius: 50px
-- Text: "Смотреть все работы" in Unageo Bold 80px (responsive: clamp(32px, 6vw, 80px)), color WHITE (#ffffff)
-- Full width with rounded corners
-
+### 3. 🔴 Contact Section Icons
+**Current:** Plain colored geometric shapes (circle, square, rounded square) with no icons inside
+**Figma:** Colored circles with WHITE icons inside (Telegram plane, phone handset, mail envelope)
 **Fix:**
-- Background: `#adc0f2` (blue), NOT peach
-- Text: white, Unageo/DM Serif Display bold, responsive size
-- Border radius: 50px
-- Width: full container, height: auto with padding
+- Add SVG icons (white) inside each colored shape:
+  - Telegram: paper plane icon
+  - Phone: phone handset icon
+  - Email: envelope/mail icon
+- All shapes should be circles (border-radius: 50%)
+- Icon color: white
+- Icon size: ~50% of circle diameter
 
-## 4. "MILDLY IMPRESSIVE MOMENTS" SECTION
-
-**Figma:**
-- Label: "Mildly impressive moments" — Manrope 500 12px
-- Body: "Along the way: featured on Figma Community, invited to speak at a design thing, and once accidentally made a typeface that looked like pasta. My work has shown up in zines, mockups, sticker-covered laptops, and one Berlin subway ad (true story). Small wins, big joy." — Manrope 500 24px
-- Link: "Смотреть еще →" — Manrope 16px
-
-**Fix:** Update the text content to match Figma exactly. Make sure body text is 24px Manrope, not monospace.
-
-## 5. CONTACT SECTION
-
-**Figma structure:**
-- Container background: `#fbf9ea` (cream)
-- Three contact rows, each with:
-  - Icon in a colored shape (70x70):
-    - Telegram: pink circle (#f2adad, radius 999)
-    - Phone: blue square (#adc0f2, no radius / small radius)
-    - Email: salmon rounded rect (#f2bfad, radius 22)
-  - Text next to icon in Unageo Bold 56px (desktop), color matches the icon color:
-    - "Evg_des_79" — color #f2adad (pink)
-    - "+7 (996) 051 69 71" — color #adc0f2 (blue)
-    - "Fargered@mail.ru" — color #f2bfad (salmon)
-
+### 4. 🔴 Contact Section — Text & Alignment
+**Current:** Left-aligned, saturated colors matching icon colors
+**Figma:** Centered on page, more muted/pastel text colors
 **Fix:**
-- Icon shapes: 70x70 colored shapes (circle, square, rounded rect) — use div with appropriate border-radius
-- Text: DM Serif Display / heading font, 56px desktop (clamp for responsive), color matches icon
-- Each row is a flex row with icon + text
-- No actual icons needed — just colored shapes for now (or use simple SVG icons if present)
+- Center the contact list on the page
+- Make text colors more muted/pastel (reduce saturation or add opacity)
+- Contact text font: Unageo Bold, size ~clamp(28px, 4.5vw, 56px)
 
-## 6. FOOTER
-
-**Figma structure:**
-- Top row: "© 2026" (left) | nav links separated by salmon dots (center) | "Евгения Фаргер" (right) — all Manrope 500 16px
-- Bottom: three decorative shapes peeking from bottom:
-  - Shape 1: 427x426, #f2d9ad (peach), border-radius 100px — left
-  - Shape 2: 427x426, #adc0f2 (blue), no radius — center
-  - Shape 3: 427x427, #f2adad (pink), radius 999 (circle) — right
-- These shapes are partially hidden (overflow hidden on footer), only tops visible
-
+### 5. 🔴 Project Cards — Text Size & Full Names
+**Current:** Small centered text, abbreviated names ("ЛК АН", "Тг приложение «МиМ»")
+**Figma:** Large bold serif text, full project names
 **Fix:**
-- Footer container with overflow:hidden
-- Text row: flex justify-between
-- Nav links with salmon (#f2bfad) dot separators
-- Three large shapes below, mostly hidden (translate down ~60-70%), creating a decorative peek effect
+- Increase card title font size to `clamp(36px, 5vw, 64px)`
+- Remove `titleShort` usage on cards — always show full `title`
+- On the Home page cards AND Works page visual blocks, show full title
 
-## 7. FONT — "Archivo Narrow"
+### 6. 🔴 Project Card Labels (below cards) — Home Page
+**Current:** "ПРОЕКТ 01" and project name stacked vertically (flex-column)
+**Figma:** "ПРОЕКТ 1" on left, project name on right (justify-between in a row)
+**Fix:**
+- Change `.labelRow` to `flex-direction: row; justify-content: space-between; align-items: baseline`
+- Remove zero-padding from numbers: "01" → "1", "02" → "2", etc. (update projects.ts)
+- Project label: caption size (10px), uppercase
+- Project name: body font, ~16-20px
 
-The Figma uses "Archivo Narrow" for the subtitle. We can substitute with Manrope since we're already using it. Just make sure it's 16px weight 500.
+### 7. 🟡 Works Page — Project Descriptions
+**Current:** Very short descriptions
+**Figma:** Longer placeholder text (lorem ipsum style)
+**Fix:**
+- Expand each project description in `projects.ts` to 2-3 sentences minimum
+- Make description font size at least 14-16px (currently 10px caption — way too small!)
+- "View case study →" link should also be larger (~14-16px)
 
-## 8. NAV FONT
+### 8. 🟡 About Page — Experience Table
+**Current:** Job titles in English ("UX/UI designer"), dates say "present"
+**Figma:** Job titles in Russian, dates say "сейчас"
+**Fix:**
+- Догма-сити: position = "Дизайнер пользовательского опыта и интерфейсов"
+- Asteq: position = "UI UX дизайнер"
+- Dates: "present" → "сейчас"
 
-Nav labels are Manrope 500 16px (not 14px, not 600 weight). Fix the font-size and weight.
+### 9. 🟡 About Page — Missing Decorative Element
+**Figma:** Small pink/coral decorative illustration (bow/ribbon/floral) in bottom-right of bio section
+**Fix:** Add a simple decorative SVG or CSS shape in pink (#f2adad) positioned absolute in the bio grid bottom-right
 
-## APPLY ALL FIXES NOW. After fixing, make sure `npm run build` succeeds.
+### 10. 🟡 Overall Typography Scale
+**Current:** Most text sizes are smaller than Figma
+**Fix:**
+- Works page title "Работы": should be much larger (~96px or H2 size 120px)
+- About page title "Обо мне": should match H1 (200px) as per Figma
+- Section headers like "Опыт работы": H3 size (80px)
+- Body text in bio: P4 (16px) — check this is applied
+- Works page descriptions: at least P4 (16px), NOT caption (10px)
+
+### 11. 🟢 Footer Dot Separators
+**Current:** Dots exist but may be hard to see
+**Fix:** Ensure dot separators (·) between nav links are visible, color: $salmon or similar accent
+
+### 12. 🟢 Vertical Spacing
+**Fix:** Increase padding between major sections:
+- Hero to projects grid: ~80px
+- Projects grid to CTA: ~80px
+- CTA to Mildly Impressive: ~80px
+- Sections generally need more breathing room
+
+---
+
+## IMPORTANT RULES
+1. Use EXACT font sizes from the design system where applicable
+2. Do NOT use `titleShort` on cards — always show full project title
+3. All contact icons must have actual SVG icons inside, not just colored shapes
+4. Test by running `npm run build` to make sure there are no errors
+5. The dev server is running on port 5173 — changes will hot-reload

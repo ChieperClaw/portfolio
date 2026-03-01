@@ -9,7 +9,7 @@
 
 .card {
   width: 100%;
-  aspect-ratio: 640 / 528;
+  aspect-ratio: 640 / 620;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,28 +30,31 @@
 
 .cardTitle {
   @include heading-font;
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: clamp(40px, 6vw, 72px);
   text-align: center;
   line-height: 1.1;
 }
 
 .labelRow {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
   @include body-font;
   padding: 0 4px;
 }
 
 .projectLabel {
-  font-size: 10px;
+  font-size: $label-size;
   font-weight: 700;
   color: $black;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .projectName {
-  font-size: 20px;
+  font-size: $p3-size;
   font-weight: 500;
   color: $black;
+  text-align: right;
 }

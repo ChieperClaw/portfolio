@@ -3,7 +3,7 @@
 
 .hero {
   background: $light-blue;
-  padding: 100px 0 40px;
+  padding: 120px 0 60px;
 
   @include mobile {
     padding: 80px 0 24px;
@@ -16,8 +16,8 @@
 
 .title {
   @include heading-font;
-  font-size: $p1-size * 3;
-  color: hsla(28, 74%, 48%, 1); // Warm orange/tan
+  font-size: clamp(80px, 14vw, 200px);
+  color: hsla(28, 74%, 48%, 1);
   font-style: italic;
   font-weight: 700;
 
@@ -57,7 +57,7 @@
 
 .projectLabel {
   @include body-font;
-  font-size: $caption-size;
+  font-size: $label-size;
   color: hsla(0, 0%, 0%, 0.4);
 }
 
@@ -74,20 +74,22 @@
 
 .description {
   @include body-font;
-  font-size: $caption-size;
+  font-size: $p4-size;
   line-height: 1.6;
+  color: $black;
 }
 
 .viewLink {
   @include body-font;
-  font-size: $caption-size;
+  font-size: $p4-size;
   font-weight: 700;
   margin-top: 12px;
+  color: $black;
 }
 
 .right {
   flex: 2;
-  height: 500px;
+  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,6 +103,6 @@
 
 .visualTitle {
   @include heading-font;
-  font-size: 48px;
+  font-size: clamp(40px, 6vw, 72px);
   font-weight: 700;
 }

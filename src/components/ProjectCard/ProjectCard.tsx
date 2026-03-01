@@ -9,10 +9,10 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className={styles.projectWrapper}>
-      <Link 
-        to={`/works/${project.id}`} 
+      <Link
+        to={`/works/${project.id}`}
         className={styles.card}
-        style={{ 
+        style={{
           backgroundColor: project.cardBg,
           color: project.cardTextColor
         }}
@@ -20,8 +20,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <span className={styles.cardTitle}>{project.titleShort || project.title}</span>
       </Link>
       <div className={styles.labelRow}>
-        <span className={styles.projectLabel}>Проект {project.number}</span>
-        <span className={styles.projectName}>{project.titleShort || project.title}</span>
+        <span className={styles.projectLabel}>ПРОЕКТ {project.number}</span>
+        <span className={styles.projectName}>{project.title}</span>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ export default function Works() {
   return (
     <div className={styles.page}>
       <Navigation />
-      
+
       <header className={styles.hero}>
         <div className={styles.container}>
           <h1 className={styles.title}>Работы</h1>
@@ -22,15 +22,15 @@ export default function Works() {
             {projects.map((project) => (
               <div key={project.id} className={styles.projectItem}>
                 <div className={styles.left}>
-                  <p className={styles.projectLabel}>PROJECT {project.number}</p>
-                  <h3 className={styles.projectName}>{project.titleShort || project.title}</h3>
+                  <p className={styles.projectLabel}>ПРОЕКТ {project.number}</p>
+                  <h3 className={styles.projectName}>{project.title}</h3>
                   <p className={styles.description}>{project.description}</p>
                   <Link to={`/works/${project.id}`} className={styles.viewLink}>
                     View case study →
                   </Link>
                 </div>
-                <div 
-                  className={styles.right} 
+                <div
+                  className={styles.right}
                   style={{ backgroundColor: project.cardBg, color: project.cardTextColor }}
                 >
                   <span className={styles.visualTitle}>{project.titleShort || project.title}</span>

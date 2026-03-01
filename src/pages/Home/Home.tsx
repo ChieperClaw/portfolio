@@ -13,25 +13,17 @@ export default function Home() {
       
       <header className={styles.hero}>
         <div className={styles.heroContainer}>
-          <h1 className={styles.heroName}>
-            <span className={styles.heroFirst}>
-              <span className={styles.heroStar}>✦</span>
-              Евгения
-            </span>
-            <span className={styles.heroLast}>Фаргер</span>
-          </h1>
+          <h1 className={styles.heroName}>Евгения Фаргер</h1>
           <p className={styles.heroSubtitle}>UI/UX Designer</p>
         </div>
       </header>
 
       <main className={styles.main}>
         <section className={styles.projects}>
-          <div className={styles.container}>
-            <div className={styles.grid}>
-              {projects.slice(0, 4).map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
-            </div>
+          <div className={styles.grid}>
+            {projects.slice(0, 4).map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
           </div>
         </section>
 

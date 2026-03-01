@@ -28,7 +28,7 @@
 
 .title {
   @include heading-font;
-  font-size: $h1-size;
+  font-size: clamp(80px, 14vw, 200px);
   line-height: 0.9;
   color: $brown;
 
@@ -74,8 +74,24 @@
   font-size: $p4-size;
   line-height: 1.6;
   max-width: 90%;
+  position: relative;
 
   p { margin-bottom: 24px; }
+}
+
+.decorFlower {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: -20px;
+  right: -40px;
+
+  @include mobile {
+    width: 70px;
+    height: 70px;
+    bottom: -10px;
+    right: 0;
+  }
 }
 
 .sideLists {
