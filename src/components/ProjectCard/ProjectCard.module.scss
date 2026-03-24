@@ -1,64 +1,46 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
-
 .projectWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
 .card {
-  width: 100%;
-  aspect-ratio: 640 / 620;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  position: relative;
-  text-decoration: none;
-  padding: 40px;
+    width: 100%;
+    aspect-ratio: 668 / 555;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
 
-  &:hover {
-    transform: scale(0.98);
-  }
-
-  @include mobile {
-    padding: 24px;
-  }
+    @include mobile {
+        aspect-ratio: 343 / 268;
+    }
 }
 
-.cardTitle {
-  @include heading-font;
-  font-size: 80px;
-  text-align: center;
-  line-height: 1.1;
-
-  @include mobile {
-    font-size: 36px;
-  }
+.cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 .labelRow {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
-  @include body-font;
-  padding: 0 4px;
+    background-color: $white0;
+    display: flex;
+    height: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .projectLabel {
-  font-size: 14px;
-  font-weight: 700;
-  color: $black;
-  text-transform: uppercase;
-  white-space: nowrap;
+    @include p4;
+    font-weight: 700;
+    white-space: nowrap;
 }
 
 .projectName {
-  font-size: $p3-size;
-  font-weight: 500;
-  color: $black;
-  text-align: right;
+    @include p2;
+    text-align: right;
 }

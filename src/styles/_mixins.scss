@@ -1,27 +1,123 @@
 @use 'variables' as *;
 
 @mixin mobile {
-  @media (max-width: $breakpoint-mobile) {
-    @content;
-  }
+    @media (max-width: $breakpoint-mobile) {
+        @content;
+    }
 }
 
 @mixin container {
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 0 $padding-horizontal;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: $max-content-width;
+    margin: 0 auto;
+    padding: 0 $padding-horizontal;
 
-  @include mobile {
-    padding: 0 $padding-horizontal-mobile;
-  }
+    @include mobile {
+        padding: 0 $padding-horizontal-mobile;
+    }
 }
 
-@mixin heading-font {
-  font-family: $font-heading;
-  font-weight: 700;
+// Headings — Unageo 700
+
+@mixin h1 {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 200px;
+    line-height: 80%;
+    letter-spacing: -0.01em;
 }
 
-@mixin body-font {
-  font-family: $font-body;
-  font-weight: 500;
+@mixin h2 {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 120px;
+    line-height: 80%;
+    letter-spacing: -0.01em;
+}
+
+@mixin h3 {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 80%;
+    letter-spacing: -0.01em;
+}
+
+@mixin h4 {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
+}
+
+@mixin h5 {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
+}
+
+// Paragraphs — Manrope 500
+
+@mixin p1 {
+    font-family: $font-body;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+}
+
+@mixin p2 {
+    font-family: $font-body;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0;
+}
+
+@mixin p3 {
+    font-family: $font-body;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+}
+
+@mixin p4 {
+    font-family: $font-body;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: 0;
+}
+
+@mixin p5 {
+    font-family: $font-body;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: 0%;
+    vertical-align: bottom;
+}
+
+@mixin label {
+    font-family: $font-body;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+@mixin caption {
+    font-family: $font-body;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 120%;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }

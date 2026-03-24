@@ -1,15 +1,34 @@
 // Colors
-$black: #000000;
-$green: #adf1ad;
-$peach: #f2d9ad;
-$blue: #adc0f2;
-$pink: #f2adad;
-$salmon: #f2bfad;
-$brown: #4f2a08;
-$cream: #fbf9ea;
-$light-blue: #dae8ff;
-$white: #ffffff;
-$light-gray: #ebebeb;
+$black0: #000000;
+$black100: #1E1E1E;
+$green0: #ADF2AD;
+$blue100: #DAE8FF;
+$blue200: #9DB9FE;
+$blue300: #789EFD;
+$blue400: #2B303B;
+$blue0: #4967A1;
+$red0: #FF6969;
+$red100: #F59393;
+$red200: #F2ADAD;
+$brown: #502A08;
+$white0: #ffffff;
+$white100: #EBEBEB;
+$white200: #FFFFFF;
+$white300: #FDF9F6;
+$yellow0: #FFFF00;
+$yellow100: #E6C17D;
+$yellow200: #E4B04D;
+$yellow300: #F2DAAD;
+$yellow400: #F2BFAD;
+$yellow500: #FBF9EA;
+
+// Interactive states
+$red-hovered: #f59393;
+$red-pressed: #ff6969;
+$blue-hovered: #9db9fe;
+$blue-pressed: #789efd;
+$yellow-hovered: #e6c17d;
+$yellow-pressed: #e4b04d;
 
 // Project card colors
 $card-dark-navy: #1a1a2e;
@@ -17,30 +36,16 @@ $card-medium-navy: #28284a;
 $card-charcoal: #1c1c28;
 $card-steel-blue: #4a6fa5;
 $card-orange: #e88a00;
+$divider: #ebebeb;
 
 // Typography
 $font-heading: 'Unageo', 'Inter', sans-serif;
 $font-body: 'Manrope', 'Helvetica Neue', sans-serif;
 
-// Font sizes - headings
-$h1-size: 200px;
-$h2-size: 120px;
-$h3-size: 80px;
-$h4-size: 56px;
-$h5-size: 32px;
-
-// Font sizes - body
-$p1-size: 32px;
-$p2-size: 24px;
-$p3-size: 20px;
-$p4-size: 16px;
-$label-size: 12px;
-$caption-size: 10px;
-
 // Breakpoints
-$breakpoint-mobile: 768px;
+$breakpoint-mobile: 960px;
 
 // Layout
-$max-width: 1280px;
+$max-content-width: 1440px;
 $padding-horizontal: 40px;
-$padding-horizontal-mobile: 20px;
+$padding-horizontal-mobile: 16px;

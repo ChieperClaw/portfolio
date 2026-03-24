@@ -1,50 +1,58 @@
-import styles from './Works.module.scss';
-import Navigation from '../../components/Navigation/Navigation';
-import ContactSection from '../../components/ContactSection/ContactSection';
-import Footer from '../../components/Footer/Footer';
-import { projects } from '../../data/projects';
 import { Link } from 'react-router';
 
-export default function Works() {
-  return (
-    <div className={styles.page}>
-      <Navigation />
+import { ProjectDescriptionHtml } from '../../components/ProjectDescriptionHtml/ProjectDescriptionHtml';
+import { projects } from '../../data/projects';
+import { addWbrAfterSlashesInAnchorText } from '../../utils/addWbrAfterSlashesInAnchorText';
 
-      <header className={styles.hero}>
-        <div className={styles.container}>
-          <h1 className={styles.title}>Работы</h1>
-        </div>
-      </header>
+import styles from './Works.module.scss';
 
-      <main className={styles.main}>
-        <div className={styles.container}>
-          <div className={styles.list}>
-            {projects.map((project) => (
-              <div key={project.id} className={styles.projectItem}>
-                <div className={styles.left}>
-                  <div className={styles.labelRow}>
-                    <p className={styles.projectLabel}>ПРОЕКТ {project.number}</p>
-                    <h3 className={styles.projectName}>{project.titleShort || project.title}</h3>
-                  </div>
-                  <p className={styles.description}>{project.description}</p>
-                  <Link to={`/works/${project.id}`} className={styles.viewLink}>
-                    View case study →
-                  </Link>
+const Works = () => {
+    return (
+        <div className={styles.page}>
+            <header className={styles.hero}>
+                <div className={styles.container}>
+                    <h1 className={styles.title}>Работы</h1>
                 </div>
-                <div
-                  className={styles.right}
-                  style={{ backgroundColor: project.cardBg, color: project.cardTextColor }}
-                >
-                  <span className={styles.visualTitle}>{project.titleShort || project.title}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </main>
+            </header>
 
-      <ContactSection backgroundColor="#fbf9ea" />
-      <Footer />
-    </div>
-  );
-}
+            <main className={styles.main}>
+                <div className={styles.list}>
+                    <div className={styles.listInner}>
+                        {projects.map(project => (
+                            <div key={project.id} className={styles.projectItem}>
+                                <div className={styles.left}>
+                                    <Link to={`/works/${project.id}`} className={styles.titleLink}>
+                                        <div className={styles.labelRow}>
+                                            <p className={styles.projectLabel}>ПРОЕКТ {project.number}</p>
+                                            <h3 className={styles.projectName}>
+                                                {project.titleShort || project.title}
+                                            </h3>
+                                        </div>
+                                    </Link>
+                                    <div className={styles.descriptionColumn}>
+                                        <ProjectDescriptionHtml
+                                            className={styles.description}
+                                            html={addWbrAfterSlashesInAnchorText(project.description)}
+                                        />
+                                        <Link to={`/works/${project.id}`} className={styles.viewLink}>
+                                            Смотреть работу
+                                        </Link>
+                                    </div>
+                                </div>
+                                <Link
+                                    to={`/works/${project.id}`}
+                                    className={styles.right}
+                                    aria-label={`Открыть проект: ${project.titleShort || project.title}`}
+                                >
+                                    <img src={project.cardImage} alt='' className={styles.thumbnail} loading='lazy' />
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </main>
+        </div>
+    );
+};
+
+export default Works;

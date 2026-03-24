@@ -1,172 +1,214 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
-
 .hero {
-  background: $salmon;
-  padding: 200px 0 100px;
+    background: $yellow400;
+    padding-bottom: 40px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
-  @include mobile {
-    padding: 120px 0 40px;
-  }
+    @include mobile {
+        height: 320px;
+        padding-bottom: 16px;
+    }
+
+    > .container {
+        width: 100%;
+    }
 }
 
 .container {
-  @include container;
+    @include container;
 }
 
 .heroContent {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-
-  @include mobile {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
 }
 
 .title {
-  @include heading-font;
-  font-size: 240px;
-  line-height: 0.9;
-  color: $brown;
+    @include h1;
+    color: $brown;
 
-  @include mobile {
-    font-size: 56px;
-  }
+    @include mobile {
+        @include h3;
+        color: $brown;
+    }
 }
 
 .portrait {
-  width: 320px;
-  height: 420px;
-  background: #fff;
-  overflow: hidden;
-  flex-shrink: 0;
-  margin-bottom: -60px;
+    width: 172px;
+    height: 216px;
+    flex-shrink: 0;
+    margin-bottom: 12px;
+    overflow: hidden;
 
-  @include mobile {
-    width: 240px;
-    height: 300px;
-  }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.portraitMobile {
+    display: none;
+    width: 100px;
+    height: 126px;
+    overflow: hidden;
+    align-self: flex-end;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 37%;
+    }
+
+    @include mobile {
+        display: block;
+        height: 214.38px;
+        width: 100%;
+    }
 }
 
 .photoPlaceholder {
-  width: 100%;
-  height: 100%;
-  background: #dbdbdb;
-  /* Add real image as background-image in real use-case */
-}
-
-.bioGrid {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 80px;
-  padding: 80px 0;
-  position: relative;
-
-  @include mobile {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 40px 0;
-  }
+    width: 100%;
+    height: 100%;
+    background: #dbdbdb;
+    /* Add real image as background-image in real use-case */
 }
 
 .bio {
-  @include body-font;
-  font-size: $p3-size;
-  line-height: 1.7;
-  max-width: 90%;
-
-  p { margin-bottom: 32px; }
+    background-color: $yellow500;
 }
 
-.decorFlower {
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  bottom: -20px;
-  right: 0;
-  z-index: 0;
+.bioInner {
+    @include container;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 120px;
+    padding-bottom: 120px;
 
-  @include mobile {
-    width: 70px;
-    height: 70px;
-    bottom: -10px;
-    right: 0;
-  }
+    @include mobile {
+        padding-top: 32px;
+        padding-bottom: 64px;
+    }
 }
 
-.sideLists {
-  display: flex;
-  gap: 60px;
+.bioDescription {
+    max-width: 612px;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    @include p2;
+    color: $brown;
+
+    @include mobile {
+        @include p4;
+    }
 }
 
-.listSection {
-  h3 {
-    @include body-font;
-    font-size: 14px;
-    color: hsla(0, 0%, 0%, 0.4);
-    letter-spacing: 0.15em;
-    margin-bottom: 12px;
-  }
+.flower {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 
-  ul {
-    @include body-font;
-    font-size: 18px;
-    color: $black;
-    line-height: 2.2;
-  }
+    @include mobile {
+        display: none;
+    }
 }
 
 .experience {
-  background: #fff8ec;
-  padding: 80px 0;
+    display: block;
+}
+
+.experienceInner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @include mobile {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
 }
 
 .expTitle {
-  @include heading-font;
-  font-size: 100px;
-  font-style: italic;
-  font-weight: 700;
-  color: hsla(28, 74%, 48%, 1);
-  margin-bottom: 40px;
-
-  @include mobile {
-    font-size: 48px;
-  }
+    @include h2;
+    color: #ADC1F2;
+    @include mobile {
+        font-size: 48px;
+    }
 }
 
 .expTable {
-  display: flex;
-  flex-direction: column;
+    display: grid;
+    grid-template-columns: max-content max-content minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+
+    @include mobile {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    }
 }
 
 .tableHeader {
-  display: flex;
-  justify-content: space-between;
-  padding: 16px 24px;
-  background: #f5d0b8;
-  @include body-font;
-  font-size: 14px;
-  color: hsla(0, 0%, 0%, 0.6);
-  letter-spacing: 0.1em;
+    display: contents;
+}
+
+.tableHeader span {
+    color: $blue300;
+    @include p4;
+    padding: 16px 0;
+    border-bottom: 1px solid #ADC1F2;
+    align-self: end;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+        padding-right: 16px;
+    }
+
+    @include mobile {
+        @include p5;
+        min-width: 0;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
 }
 
 .tableRow {
-  display: flex;
-  justify-content: space-between;
-  padding: 28px 24px;
-  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.2);
-  @include body-font;
-  font-size: 18px;
+    display: contents;
+}
+
+.tableRow span {
+    @include p3;
+    color: $brown;
+    padding: 20px 0;
+    border-bottom: 1px dashed $brown;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+        padding-right: 16px;
+    }
+
+    @include mobile {
+        @include p5;
+        min-width: 0;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
 }
 
 .rightAlign {
-  text-align: right;
-  flex: 1;
-}
-
-.tableRow span, .tableHeader span {
-  flex: 1;
+    text-align: right;
 }

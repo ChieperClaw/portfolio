@@ -1,48 +1,72 @@
-import { NavLink, useLocation } from 'react-router';
+import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router';
+
+import { Footer } from '../Footer/Footer';
+
 import styles from './Navigation.module.scss';
+import { IconBurger, IconClose, ShapeAbout, ShapeGlavnaya, ShapeGlavnayaMobile, ShapeRaboty } from './NavShapes';
 
-export default function Navigation() {
-  const location = useLocation();
-  
-  const isHome = location.pathname === '/';
-  const isWorks = location.pathname.startsWith('/works');
-  const isAbout = location.pathname === '/about';
+export const Navigation = () => {
+    const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <nav className={styles.nav}>
-      <NavLink 
-        to="/" 
-        className={`${styles.btnGlavnaya} ${isHome ? styles.active : ''}`}
-      >
-        <svg className={styles.shape} viewBox="0 0 88 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Peanut/blob shape: two overlapping pills */}
-          <rect x="0" y="0" width="88" height="44" rx="22" fill="currentColor"/>
-          <rect x="0" y="36" width="88" height="44" rx="22" fill="currentColor"/>
-        </svg>
-        <span className={styles.label}>Главная</span>
-      </NavLink>
+    const open = () => setIsOpen(true);
+    const close = () => setIsOpen(false);
 
-      <NavLink 
-        to="/works" 
-        className={`${styles.btnRaboty} ${isWorks ? styles.active : ''}`}
-      >
-        <svg className={styles.shape} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Rounded square */}
-          <rect width="80" height="80" rx="16" fill="currentColor"/>
-        </svg>
-        <span className={styles.label}>Работы</span>
-      </NavLink>
+    useEffect(() => {
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
 
-      <NavLink 
-        to="/about" 
-        className={`${styles.btnAbout} ${isAbout ? styles.active : ''}`}
-      >
-        <svg className={styles.shape} viewBox="0 0 87 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Circle / pill */}
-          <rect width="87" height="80" rx="40" fill="currentColor"/>
-        </svg>
-        <span className={styles.label}>Обо мне</span>
-      </NavLink>
-    </nav>
-  );
-}
+    return (
+        <>
+            {/* Desktop nav */}
+            <nav className={styles.nav}>
+                <NavLink to='/' className={styles.btnGlavnaya}>
+                    <ShapeGlavnaya className={styles.shape} />
+                    <span className={styles.label}>Главная</span>
+                </NavLink>
+
+                <NavLink to='/works' className={styles.btnRaboty}>
+                    <ShapeRaboty className={styles.shape} />
+                    <span className={styles.label}>Работы</span>
+                </NavLink>
+
+                <NavLink to='/about' className={styles.btnAbout}>
+                    <ShapeAbout className={styles.shape} />
+                    <span className={styles.label}>Обо мне</span>
+                </NavLink>
+
+                <button className={styles.burgerBtn} onClick={open} aria-label='Открыть меню'>
+                    <IconBurger />
+                </button>
+            </nav>
+
+            <div className={`${styles.overlay} ${isOpen ? styles.overlayOpen : ''}`}>
+                <button className={styles.closeBtn} onClick={close} aria-label='Закрыть меню'>
+                    <IconClose />
+                </button>
+
+                <nav className={styles.mobileNav}>
+                    <NavLink to='/' className={styles.mobileGlavnaya} onClick={close}>
+                        <ShapeGlavnayaMobile className={styles.mobileShape} />
+                        <span className={styles.mobileLabel}>Главная</span>
+                    </NavLink>
+
+                    <NavLink to='/works' className={styles.mobileRaboty} onClick={close}>
+                        <ShapeRaboty className={styles.mobileShape} />
+                        <span className={styles.mobileLabel}>Работы</span>
+                    </NavLink>
+
+                    <NavLink to='/about' className={styles.mobileAbout} onClick={close}>
+                        <ShapeAbout className={styles.mobileShape} />
+                        <span className={styles.mobileLabel}>Обо мне</span>
+                    </NavLink>
+                </nav>
+
+                <Footer />
+            </div>
+        </>
+    );
+};
