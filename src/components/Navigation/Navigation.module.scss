@@ -12,14 +12,47 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     padding: 12px 40px;
     background-color: $white0;
     z-index: 100;
+    gap: 8px;
 
     @include mobile {
         padding: 16px;
     }
+}
+
+.navTrailing {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.projectBack {
+    @include p4;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+    color: $black0;
+    text-align: left;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.projectBackIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 // Shared button base

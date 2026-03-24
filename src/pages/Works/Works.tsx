@@ -23,7 +23,7 @@ const Works = () => {
                                 <div className={styles.left}>
                                     <Link to={`/works/${project.id}`} className={styles.titleLink}>
                                         <div className={styles.labelRow}>
-                                            <p className={styles.projectLabel}>ПРОЕКТ {project.number}</p>
+                                            <p className={styles.projectLabel}>Проект {project.number}</p>
                                             <h3 className={styles.projectName}>
                                                 {project.titleShort || project.title}
                                             </h3>

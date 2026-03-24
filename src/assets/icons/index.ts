@@ -9,3 +9,6 @@ export { default as EnvelopeIcon } from './envelope.svg?react';
 
 export { default as FlowerSvg } from './flower.svg';
 export { default as FlowerIcon } from './flower.svg?react';
+
+export { default as LeftArrowSvg } from './leftArrow.svg';
+export { default as LeftArrowIcon } from './leftArrow.svg?react';

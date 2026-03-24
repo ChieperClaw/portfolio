@@ -101,11 +101,21 @@
 
 .projectLabel {
     @include caption;
+    text-transform: uppercase;
     font-weight: 700;
+
+    @include mobile {
+        @include p4;
+        text-transform: none;
+    }
 }
 
 .projectName {
     @include p4;
+
+    @include mobile {
+        font-weight: 700;
+    }
 }
 
 .right {
