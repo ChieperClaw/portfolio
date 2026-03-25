@@ -42,7 +42,7 @@ const renderContactValue = (type: string, value: string): ReactNode => {
 export const ContactSection = ({ backgroundColor }: ContactSectionProps) => {
     const contacts = [
         { type: 'Telegram', value: 'Evg_des_79', color: 'pink', shape: 'circle' as const },
-        { type: 'Phone', value: '+7 (996) 051 69 71', color: 'blue', shape: 'square' as const },
+        { type: 'Phone', value: '+7 (988) 521 97 17', color: 'blue', shape: 'square' as const },
         { type: 'Email', value: 'fargerevgdes@mail.ru', color: 'salmon', shape: 'rounded' as const },
     ];
 

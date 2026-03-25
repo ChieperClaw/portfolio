@@ -5,10 +5,10 @@
 .hero {
     display: flex;
     align-items: flex-end;
-    height: 367px;
+    height: 230px;
 
     @include mobile {
-        height: 207px;
+        height: 150px;
         padding-bottom: 32px;
     }
 
@@ -29,7 +29,7 @@
 }
 
 .heroName {
-    @include h2;
+    @include h3;
     display: flex;
     gap: 32px;
     color: $brown;

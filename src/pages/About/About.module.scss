@@ -1,13 +1,13 @@
 .hero {
     background: $yellow400;
     padding-bottom: 40px;
-    height: 520px;
+    height: 230px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 
     @include mobile {
-        height: 320px;
+        height: 150px;
         padding-bottom: 16px;
     }
 
@@ -20,14 +20,8 @@
     @include container;
 }
 
-.heroContent {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-}
-
 .title {
-    @include h1;
+    @include h3;
     color: $brown;
 
     @include mobile {
@@ -36,89 +30,86 @@
     }
 }
 
-.portrait {
-    width: 172px;
-    height: 216px;
-    flex-shrink: 0;
-    margin-bottom: 12px;
-    overflow: hidden;
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center top;
-    }
-
-    @include mobile {
-        display: none;
-    }
-}
-
-.portraitMobile {
-    display: none;
-    width: 100px;
-    height: 126px;
-    overflow: hidden;
-    align-self: flex-end;
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center 37%;
-    }
-
-    @include mobile {
-        display: block;
-        height: 214.38px;
-        width: 100%;
-    }
-}
-
-.photoPlaceholder {
-    width: 100%;
-    height: 100%;
-    background: #dbdbdb;
-    /* Add real image as background-image in real use-case */
-}
-
 .bio {
     background-color: $yellow500;
 }
 
 .bioInner {
     @include container;
-    position: relative;
     display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding-top: 120px;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 48px;
+    padding-top: 80px;
     padding-bottom: 120px;
 
     @include mobile {
+        flex-direction: column;
         padding-top: 32px;
         padding-bottom: 64px;
+        gap: 32px;
     }
 }
 
 .bioDescription {
+    flex: 1 1 0;
+    min-width: 0;
     max-width: 612px;
     display: flex;
-    gap: 40px;
     flex-direction: column;
+    gap: 40px;
     @include p2;
     color: $brown;
 
     @include mobile {
         @include p4;
+        order: 1;
+        max-width: none;
+    }
+}
+
+// Портрет: ширина рамки — у обёртки; пропорции и кроп — aspect-ratio + object-fit / object-position
+.portraitWrap {
+    position: relative;
+    flex: 0 0 auto;
+    width: 280px;
+    max-width: 100%;
+    min-width: 0;
+
+    @include mobile {
+        width: 100%;
+        order: -1;
+    }
+}
+
+.portrait {
+    width: 100%;
+    height: 100%;
+    height: 100%;
+    aspect-ratio: 524 / 330;
+    overflow: hidden;
+    display: block;
+
+    @include mobile {
+        aspect-ratio: 343 / 252;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
     }
 }
 
 .flower {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    right: -8px;
+    bottom: -4px;
+    z-index: 1;
+    pointer-events: none;
 
     @include mobile {
         display: none;

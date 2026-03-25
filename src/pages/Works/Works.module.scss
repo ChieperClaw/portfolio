@@ -1,13 +1,13 @@
 .hero {
     background: $blue100;
     padding-bottom: 40px;
-    height: 520px;
+    height: 230px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 
     @include mobile {
-        height: 320px;
+        height: 150px;
         padding-bottom: 16px;
     }
 
@@ -21,7 +21,7 @@
 }
 
 .title {
-    @include h1;
+    @include h3;
     color: $red200;
 
     @include mobile {
@@ -48,6 +48,7 @@
     align-items: stretch;
     border: 1px solid $white100;
     min-width: 0;
+    max-height: 600px;
 
     @include mobile {
         flex-direction: column-reverse;

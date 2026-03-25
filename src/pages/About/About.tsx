@@ -18,21 +18,13 @@ const About = () => {
         <div className={styles.page}>
             <header className={styles.hero}>
                 <div className={styles.container}>
-                    <div className={styles.heroContent}>
-                        <h1 className={styles.title}>Обо мне</h1>
-                        <div className={styles.portrait}>
-                            <img src={portrait} alt='Евгения Фаргер' />
-                        </div>
-                    </div>
+                    <h1 className={styles.title}>Обо мне</h1>
                 </div>
             </header>
 
             <main className={styles.main}>
                 <div className={styles.bio}>
                     <div className={styles.bioInner}>
-                        <div className={styles.portraitMobile}>
-                            <img src={portrait} alt='Евгения Фаргер' />
-                        </div>
                         <div className={styles.bioDescription}>
                             <p>
                                 Я Евгения - продуктовый дизайнер. Помогаю превращать сложные задачи в понятные
@@ -45,7 +37,12 @@ const About = () => {
                                 рутина - чтобы доводить макеты до чистоты, консистентности и готовности к разработке
                             </p>
                         </div>
-                        <FlowerIcon className={styles.flower} />
+                        <div className={styles.portraitWrap}>
+                            <div className={styles.portrait}>
+                                <img src={portrait} alt='Евгения Фаргер' />
+                            </div>
+                            <FlowerIcon className={styles.flower} />
+                        </div>
                     </div>
                 </div>
 

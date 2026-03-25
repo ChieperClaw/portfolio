@@ -8,16 +8,11 @@ type ProjectCardProps = {
     project: Project;
 };
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+const ProjectCard = ({ project }: ProjectCardProps) => {
     return (
         <div className={styles.projectWrapper}>
             <Link to={`/works/${project.id}`} className={styles.card}>
-                <img
-                    src={project.cardImage}
-                    alt={project.title}
-                    className={styles.cardImage}
-                    loading='lazy'
-                />
+                <img src={project.cardImage} alt={project.title} className={styles.cardImage} loading='lazy' />
             </Link>
             <div className={styles.labelRow}>
                 <span className={styles.projectLabel}>Проект {project.number}</span>
@@ -25,4 +20,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </div>
         </div>
     );
-}
+};
+
+export default ProjectCard;
