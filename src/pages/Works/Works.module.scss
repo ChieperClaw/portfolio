@@ -149,6 +149,24 @@
     object-fit: cover;
     object-position: center;
     display: block;
+    transform: scale(1);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.right:hover .thumbnail,
+.right:focus-visible .thumbnail {
+    transform: scale(1.07);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .thumbnail {
+        transition: none;
+    }
+
+    .right:hover .thumbnail,
+    .right:focus-visible .thumbnail {
+        transform: scale(1);
+    }
 }
 
 .visualTitle {

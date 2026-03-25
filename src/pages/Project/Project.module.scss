@@ -47,6 +47,8 @@
 
 .description {
     @include p1;
+    min-width: 0;
+    overflow-wrap: break-word;
 
     @include mobile {
         @include p3;
@@ -54,6 +56,7 @@
 
     p {
         margin: 0 0 1em;
+        min-width: 0;
 
         &:last-child {
             margin-bottom: 0;
@@ -67,6 +70,8 @@
     a {
         color: inherit;
         text-decoration: none;
+        overflow-wrap: break-word;
+        word-break: normal;
 
         &:hover {
             opacity: 0.7;
@@ -227,4 +232,22 @@
     object-fit: cover;
     object-position: center;
     display: block;
+    transform: scale(1);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.relatedItem:hover .relatedThumb,
+.relatedItem:focus-visible .relatedThumb {
+    transform: scale(1.07);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .relatedThumb {
+        transition: none;
+    }
+
+    .relatedItem:hover .relatedThumb,
+    .relatedItem:focus-visible .relatedThumb {
+        transform: scale(1);
+    }
 }

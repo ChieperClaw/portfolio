@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router';
 
 import { ProjectDescriptionHtml } from '../../components/ProjectDescriptionHtml/ProjectDescriptionHtml';
 import { color, projects } from '../../data/projects';
+import { addWbrAfterSlashesInAnchorText } from '../../utils/addWbrAfterSlashesInAnchorText';
 
 import styles from './Project.module.scss';
 
@@ -32,7 +33,10 @@ export const ProjectPage = (): ReactElement | null => {
                                 return (
                                     <div key={index} className={styles.textBlock}>
                                         {block.title ? <h4 className={styles.sectionTitle}>{block.title}</h4> : null}
-                                        <ProjectDescriptionHtml className={styles.description} html={block.html} />
+                                        <ProjectDescriptionHtml
+                                            className={styles.description}
+                                            html={addWbrAfterSlashesInAnchorText(block.html)}
+                                        />
                                     </div>
                                 );
                             }
