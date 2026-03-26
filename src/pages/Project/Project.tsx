@@ -40,14 +40,36 @@ export const ProjectPage = (): ReactElement | null => {
                                     </div>
                                 );
                             }
+                            const frameStyle = {
+                                ...(block.maxWidth ? { maxWidth: block.maxWidth } : {}),
+                                ...(block.maxHeight ? { maxHeight: block.maxHeight } : {}),
+                            };
+
+                            const imgStyle = {
+                                ...(block.minWidth ? { '--img-min-width': `${block.minWidth}px` } : {}),
+                                ...(block.minHeight ? { '--img-min-height': `${block.minHeight}px` } : {}),
+                            } as React.CSSProperties;
+
+                            const imgEl = (
+                                <img
+                                    src={block.src}
+                                    alt={block.alt ?? ''}
+                                    className={styles.imageFrameImg}
+                                    style={imgStyle}
+                                    loading='lazy'
+                                />
+                            );
+
                             return (
-                                <div key={index} className={styles.imageFrame}>
-                                    <img
-                                        src={block.src}
-                                        alt={block.alt ?? ''}
-                                        className={styles.imageFrameImg}
-                                        loading='lazy'
-                                    />
+                                <div key={index} className={styles.imageFrame} style={frameStyle}>
+                                    {block.mobileSrc ? (
+                                        <picture>
+                                            <source media='(max-width: 960px)' srcSet={block.mobileSrc} />
+                                            {imgEl}
+                                        </picture>
+                                    ) : (
+                                        imgEl
+                                    )}
                                 </div>
                             );
                         })}

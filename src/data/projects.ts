@@ -1,9 +1,18 @@
-import lkAnCard from '../assets/lk-an.png';
-import mimCard from '../assets/mim.png';
-import prometallCard from '../assets/prometall.png';
-import prometallImage1 from '../assets/prometallImage1.png';
-import prometallImage2 from '../assets/prometallImage2.png';
-import promoCard from '../assets/promo.png';
+import lkImage1 from '../assets/lkImage1.svg';
+import lkImage2 from '../assets/lkImage2.svg';
+import lkImage3 from '../assets/lkImage3.svg';
+import lkAnCard from '../assets/lkThumbnail.png';
+import mimImage1Desktop from '../assets/mimImage1.svg';
+import mimImage1Mobile from '../assets/mimImage1_mobile.svg';
+import mimCard from '../assets/mimThumbnail.png';
+import prometallImage1 from '../assets/prometallImage1.svg';
+import prometallImage2 from '../assets/prometallImage2.svg';
+import prometallCard from '../assets/prometallThumbnail.png';
+import promoImage1 from '../assets/promoImage1.svg';
+import promoImage1Mobile from '../assets/promoImage1_mobile.svg';
+import promoImage2 from '../assets/promoImage2.svg';
+import promoImage3 from '../assets/promoImage3.svg';
+import promoCard from '../assets/promoThumbnail.png';
 
 const tokens: Record<string, string> = {
     black0: '#000000',
@@ -22,7 +31,16 @@ export const color = (v: string): string => tokens[v] ?? v;
 
 export type ContentBlock =
     | { type: 'text'; title?: string; html: string }
-    | { type: 'image'; src: string; alt?: string };
+    | {
+          type: 'image';
+          src: string;
+          mobileSrc?: string;
+          alt?: string;
+          maxWidth?: number;
+          maxHeight?: number;
+          minWidth?: number;
+          minHeight?: number;
+      };
 
 export type Project = {
     id: string;
@@ -57,7 +75,7 @@ export const projects: Project[] = [
 <p>Этот проект можно посмотреть по ссылке: <a href="https://prometall23.ru/" target="_blank">https://prometall23.ru/</a></p>
                 `.trim(),
             },
-            { type: 'image', src: prometallImage1, alt: 'Прометалл — превью' },
+            { type: 'image', src: prometallImage1, alt: 'Прометалл — превью', minWidth: 500 },
             {
                 type: 'text',
                 title: 'Процесс работы',
@@ -122,7 +140,7 @@ export const projects: Project[] = [
 <p>Этот проект можно посмотреть по ссылке: <a href="https://dogma.ru/stocks/Lizing_v_DOGMA" target="_blank">https://dogma.ru/stocks/Lizing_v_DOGMA</a></p>
                 `.trim(),
             },
-            { type: 'image', src: promoCard, alt: 'Акции — превью' },
+            { type: 'image', src: promoImage1, mobileSrc: promoImage1Mobile, alt: 'Акции — превью' },
             {
                 type: 'text',
                 title: 'Процесс работы',
@@ -147,7 +165,7 @@ export const projects: Project[] = [
 </ol>
                 `.trim(),
             },
-            { type: 'image', src: promoCard, alt: 'Процесс работы над проектом' },
+            { type: 'image', src: promoImage2, alt: 'Процесс работы над проектом' },
             {
                 type: 'text',
                 title: 'Результаты',
@@ -165,7 +183,7 @@ export const projects: Project[] = [
 </ol>
                 `.trim(),
             },
-            { type: 'image', src: promoCard, alt: 'Результаты работы над проектом' },
+            { type: 'image', src: promoImage3, alt: 'Результаты работы над проектом' },
             {
                 type: 'text',
                 title: 'Почему так сделала?',
@@ -191,13 +209,13 @@ export const projects: Project[] = [
 <p>Для защиты NDA визуальный стиль и брендинг изменены, данные сгенерированы случайно</p>
                 `.trim(),
             },
-            { type: 'image', src: lkAnCard, alt: 'ЛК АН — прототип' },
+            { type: 'image', src: lkImage1, alt: 'ЛК АН — прототип' },
             {
                 type: 'text',
                 title: 'Проблема',
                 html: `<p>Предыдущий интерфейс перестал отвечать запросам пользователей. Анализ показал, что агенты тратят слишком много времени на поиск нужной информации и совершают лишние действия. Бизнесу требовалось повысить эффективность работы сотрудников и лояльность к продукту</p>`,
             },
-            { type: 'image', src: lkAnCard, alt: 'ЛК АН — Итоговый дизайн карточек ПК' },
+            { type: 'image', src: lkImage2, alt: 'ЛК АН — Итоговый дизайн карточек ПК' },
             {
                 type: 'text',
                 title: 'Процесс работы',
@@ -227,7 +245,7 @@ export const projects: Project[] = [
 </ol>
                 `.trim(),
             },
-            { type: 'image', src: lkAnCard, alt: 'Итоговый дизайн карточек мобильная версия' },
+            { type: 'image', src: lkImage3, alt: 'Итоговый дизайн карточек мобильная версия' },
             {
                 type: 'text',
                 title: 'Результаты',
@@ -281,7 +299,12 @@ export const projects: Project[] = [
 </ul>
                 `.trim(),
             },
-            { type: 'image', src: mimCard, alt: 'МиМ — Итоговый дизайн' },
+            {
+                type: 'image',
+                src: mimImage1Desktop,
+                mobileSrc: mimImage1Mobile,
+                alt: 'МиМ — Итоговый дизайн',
+            },
             {
                 type: 'text',
                 title: 'Функционал и сценарии',
@@ -297,7 +320,6 @@ export const projects: Project[] = [
 </ul>
                 `.trim(),
             },
-            { type: 'image', src: mimCard, alt: 'МиМ — Итоговый дизайн 2' },
             {
                 type: 'text',
                 title: 'Процесс работы',
@@ -315,7 +337,7 @@ export const projects: Project[] = [
         <p><strong>Использование готовой Дизайн-системы</strong></p>
         <p>Я не тратила время на отрисовку базовых элементов. Использование существующей дизайн-системы позволило:</p>
         <ul>
-            <li>Сохранить консистентность с другими продуктами холдинга./li>
+            <li>Сохранить консистентность с другими продуктами холдинга.</li>
             <li>Сократить время передачи макетов в разработку (Hand-off)</li>
             <li>Сосредоточиться на UX-логике, а не на «красивых кнопках».</li>
         </ul>

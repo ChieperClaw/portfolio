@@ -38,11 +38,11 @@
     @include container;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: space-between;
-    gap: 48px;
+    gap: 64px;
     padding-top: 80px;
-    padding-bottom: 120px;
+    padding-bottom: 80px;
 
     @include mobile {
         flex-direction: column;
@@ -69,29 +69,25 @@
     }
 }
 
-// Портрет: ширина рамки — у обёртки; пропорции и кроп — aspect-ratio + object-fit / object-position
 .portraitWrap {
     position: relative;
-    flex: 0 0 auto;
-    width: 280px;
-    max-width: 100%;
+    flex: 1 1 0;
     min-width: 0;
 
     @include mobile {
+        flex: none;
         width: 100%;
         order: -1;
     }
 }
 
 .portrait {
-    width: 100%;
-    height: 100%;
-    height: 100%;
-    aspect-ratio: 524 / 330;
+    position: absolute;
+    inset: 0;
     overflow: hidden;
-    display: block;
 
     @include mobile {
+        position: relative;
         aspect-ratio: 343 / 252;
     }
 
@@ -100,14 +96,14 @@
         height: 100%;
         display: block;
         object-fit: cover;
-        object-position: center;
+        object-position: center 30%;
     }
 }
 
 .flower {
     position: absolute;
-    right: -8px;
-    bottom: -4px;
+    right: -38px;
+    bottom: -64px;
     z-index: 1;
     pointer-events: none;
 

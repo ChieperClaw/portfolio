@@ -118,7 +118,8 @@
 }
 
 .imageFrame {
-    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
     box-sizing: border-box;
     padding: 60px 120px;
     border: 1px solid $black100;
@@ -134,6 +135,13 @@
     width: 100%;
     height: auto;
     display: block;
+    min-width: var(--img-min-width, auto);
+    min-height: var(--img-min-height, auto);
+
+    @include mobile {
+        min-width: auto;
+        min-height: auto;
+    }
 }
 
 .related {

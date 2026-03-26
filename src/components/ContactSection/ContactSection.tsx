@@ -46,46 +46,38 @@ export const ContactSection = ({ backgroundColor }: ContactSectionProps) => {
         { type: 'Email', value: 'fargerevgdes@mail.ru', color: 'salmon', shape: 'rounded' as const },
     ];
 
-    const isMobile = window.innerWidth < 960;
-
     return (
         <section className={styles.contactSection} style={{ backgroundColor: backgroundColor || '#fbf9ea' }}>
             <div className={styles.container}>
                 <div className={styles.contactList}>
-                    {contacts.map(contact => (
-                        <div key={contact.type} className={styles.contactItem}>
-                            <div
-                                className={`${styles.icon} ${styles[contact.shape]}`}
-                                style={{ backgroundColor: iconBgColors[contact.color] }}
-                            >
-                                {(() => {
-                                    const Icon = icons[contact.type];
-                                    return Icon ? (
-                                        <Icon
-                                            width={isMobile ? '24px' : '32px'}
-                                            height={isMobile ? '24px' : '32px'}
-                                            color='white'
-                                        />
-                                    ) : null;
-                                })()}
+                    {contacts.map(contact => {
+                        const Icon = icons[contact.type];
+                        return (
+                            <div key={contact.type} className={styles.contactItem}>
+                                <div
+                                    className={`${styles.icon} ${styles[contact.shape]}`}
+                                    style={{ backgroundColor: iconBgColors[contact.color] }}
+                                >
+                                    {Icon && <Icon color='white' />}
+                                </div>
+                                <a
+                                    href={
+                                        contact.type === 'Telegram'
+                                            ? `https://t.me/${contact.value}`
+                                            : contact.type === 'Phone'
+                                              ? `tel:${contact.value.replace(/[\s()]/g, '')}`
+                                              : `mailto:${contact.value}`
+                                    }
+                                    className={styles.value}
+                                    style={{ color: textColors[contact.color] }}
+                                    target={contact.type === 'Telegram' ? '_blank' : undefined}
+                                    rel={contact.type === 'Telegram' ? 'noopener noreferrer' : undefined}
+                                >
+                                    {renderContactValue(contact.type, contact.value)}
+                                </a>
                             </div>
-                            <a
-                                href={
-                                    contact.type === 'Telegram'
-                                        ? `https://t.me/${contact.value}`
-                                        : contact.type === 'Phone'
-                                          ? `tel:${contact.value.replace(/[\s()]/g, '')}`
-                                          : `mailto:${contact.value}`
-                                }
-                                className={styles.value}
-                                style={{ color: textColors[contact.color] }}
-                                target={contact.type === 'Telegram' ? '_blank' : undefined}
-                                rel={contact.type === 'Telegram' ? 'noopener noreferrer' : undefined}
-                            >
-                                {renderContactValue(contact.type, contact.value)}
-                            </a>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>
